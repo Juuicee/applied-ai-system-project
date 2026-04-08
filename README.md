@@ -2,7 +2,7 @@
 
 **Core concept students needed to understand:** Using search to find relevant info first makes AI answers more accurate.
 
-Where students may struggle: Designing an effective retrieval pipeline and deciding how to split, score, and rank text chunks can be confusing.
+**Where students may struggle:** Designing an effective retrieval pipeline and deciding how to split, score, and rank text chunks can be confusing.
 
 **Where AI was helpful vs misleading:** AI suggestions helped with coding ideas but sometimes gave confusing or wrong solutions so must be very wary of that!
 
