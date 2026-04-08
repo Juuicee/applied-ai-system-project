@@ -8,6 +8,8 @@ Where students may struggle: Designing an effective retrieval pipeline and decid
 
 **One way you’d guide a student without giving the answer:** Have them follow a question through the system to see where bad or irrelevant results come from and have them get their answer from there!
 
+Overall, combining retrieval with AI gives much better answers than AI alone. Students must learn the importance of grounding answers in evidence, carefully structuring data, and thinking critically about the systems behavior. While AI can speed up coding and reasoning, understanding the underlying logic is key to building a reliable system!
+
 ## Comparing Retrieval, Generation, and RAG
 
 Naive LLM = fluent but unreliable
