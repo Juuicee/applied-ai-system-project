@@ -1,3 +1,13 @@
+## Final Summary
+
+The core concept students needed to understand in the earlier modules (1–3) is how simple retrieval systems can be used to ground AI responses in real documentation before introducing more advanced language model generation.
+
+I believe students will most commonly struggle with the first step of the setup as it was a bit confusing to get done at first with --bare and --mirror.
+
+AI tools were helpful for generating code scaffolding and suggesting implementation ideas, but they were often misleading when they introduced overly complex retrieval methods or ignored the simplicity required in early module designs.
+
+One effective way to guide students without giving away the solution was to have them trace a query through the system step-by-step to identify where relevant information was lost, while also analyzing the system architecture to understand how each component contributes to the final output.
+
 ## Reliability and Evaluation
 
 How reliability is measured:
