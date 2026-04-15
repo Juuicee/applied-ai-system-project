@@ -30,8 +30,6 @@ The goal of the original system was to explore basic information retrieval techn
 
 ---
 
-## 2. Title and Summary
-
 ### Title:
 **DocuBot – Retrieval-Augmented Documentation Assistant**
 
