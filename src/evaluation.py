@@ -10,7 +10,8 @@ The evaluation is intentionally simple: it checks whether DocuBot retrieves
 the correct files for each query and reports a hit rate.
 """
 
-from dataset import SAMPLE_QUERIES
+from src.dataset import SAMPLE_QUERIES
+from src.docubot import DocuBot
 
 
 # -----------------------------------------------------------

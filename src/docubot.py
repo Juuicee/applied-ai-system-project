@@ -7,8 +7,12 @@ Core DocuBot class responsible for:
 - Supporting RAG answers when paired with Gemini (Phase 2)
 """
 
+from src.llm_client import GeminiClient
+
 import os
 import glob
+
+import logging
 
 class DocuBot:
     def __init__(self, docs_folder="docs", llm_client=None):
@@ -112,6 +116,14 @@ class DocuBot:
 
         Return a list of (filename, text) sorted by score descending.
         """
+
+        # Added logging and guardrail for low confidence retrieval
+        logging.basicConfig(level=logging.INFO)
+
+        # Example usage:
+        logging.info(f"Retrieving for query: {query}")
+        logging.info(f"Top results: {scored_chunks[:3]}")
+
         results = []
         # TODO: implement retrieval logic
         query_words = query.lower().split()
@@ -136,6 +148,13 @@ class DocuBot:
         scored_chunks.sort(key=lambda x: x[2], reverse=True)
 
         # Guardrail — refuse if no strong evidence
+        if not scored_chunks:
+            return []
+
+        if scored_chunks[0][2] < 2:
+            logging.warning("Low confidence retrieval — refusing to answer.")
+            return []
+        
         if not scored_chunks or scored_chunks[0][2] < 2:
             return []
 

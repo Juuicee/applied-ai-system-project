@@ -10,10 +10,9 @@ Supports three modes:
 from dotenv import load_dotenv
 load_dotenv()
 
-from docubot import DocuBot
-from llm_client import GeminiClient
-from dataset import SAMPLE_QUERIES
-
+from src.docubot import DocuBot
+from src.llm_client import GeminiClient
+from src.dataset import SAMPLE_QUERIES
 
 def try_create_llm_client():
     """
