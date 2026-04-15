@@ -54,3 +54,5 @@ DocuBot is built using three main components:
 
 - **Evaluation System:**  
   Measures retrieval performance using predefined sample queries and expected document matches.
+
+  ![Architecture](./assets/architecture.png)
