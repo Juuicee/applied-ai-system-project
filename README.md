@@ -30,8 +30,7 @@ The goal of the original system was to explore basic information retrieval techn
 
 ---
 
-### Title:
-**DocuBot – Retrieval-Augmented Documentation Assistant**
+# **DocuBot – Retrieval-Augmented Documentation Assistant**
 
 ### Summary:
 DocuBot is an AI-powered assistant that helps developers answer questions about a codebase by combining document retrieval with large language model generation. It uses a Retrieval-Augmented Generation (RAG) pipeline to ensure answers are grounded in actual documentation.
