@@ -1,102 +1,46 @@
-### Reflection
+## Reliability and Evaluation
 
-**Core concept students needed to understand:** Using search to find relevant info first makes AI answers more accurate.
+How reliability is measured:
 
-**Where students may struggle:** Designing an effective retrieval pipeline and deciding how to split, score, and rank text chunks can be confusing.
+Hit Rate = correct retrievals / total queries
 
-**Where AI was helpful vs misleading:** AI suggestions helped with coding ideas but sometimes gave confusing or wrong solutions so must be very wary of that!
+The system includes basic logging points that allow debugging of:
 
-**One way you’d guide a student without giving the answer:** Have them follow a question through the system to see where bad or irrelevant results come from and have them get their answer from there!
+- Which documents were retrieved
+- How chunks were scored
+- When no relevant documents were found
 
-Overall, combining retrieval with AI gives much better answers than AI alone. Students must learn the importance of grounding answers in evidence, carefully structuring data, and thinking critically about the systems behavior. While AI can speed up coding and reasoning, understanding the underlying logic is key to building a reliable system!
+# DocuBot – AI Documentation Assistant (RAG System)
 
-## Comparing Retrieval, Generation, and RAG
+## 1. Original Project (Modules 1–3)
 
-Naive LLM = fluent but unreliable
-Retrieval Only = reliable but not user-friendly
-RAG = best balance of accuracy and usability
+This project is an extension of my earlier AI system built in Modules 1–3. The original version focused on building a simple documentation assistant that could load text files and return relevant information using keyword-based retrieval.
 
-RAG is only as good as its retrieval. If retrieval fails, generation has nothing reliable to use.
-
-# DocuBot
-
-DocuBot is a small documentation assistant that helps answer developer questions about a codebase.  
-It can operate in three different modes:
-
-1. **Naive LLM mode**  
-   Sends the entire documentation corpus to a Gemini model and asks it to answer the question.
-
-2. **Retrieval only mode**  
-   Uses a simple indexing and scoring system to retrieve relevant snippets without calling an LLM.
-
-3. **RAG mode (Retrieval Augmented Generation)**  
-   Retrieves relevant snippets, then asks Gemini to answer using only those snippets.
-
-The docs folder contains realistic developer documents (API reference, authentication notes, database notes), but these files are **just text**. They support retrieval experiments and do not require students to set up any backend systems.
+The goal of the original system was to explore basic information retrieval techniques and understand how structured text search can improve AI-assisted question answering. It did not include any large language model integration or evaluation framework at the beginning.
 
 ---
 
-## Setup
+## 2. Title and Summary
 
-### 1. Install Python dependencies
+### Title:
+**DocuBot – Retrieval-Augmented Documentation Assistant**
 
-    pip install -r requirements.txt
+### Summary:
+DocuBot is an AI-powered assistant that helps developers answer questions about a codebase by combining document retrieval with large language model generation. It uses a Retrieval-Augmented Generation (RAG) pipeline to ensure answers are grounded in actual documentation.
 
-### 2. Configure environment variables
-
-Copy the example file:
-
-    cp .env.example .env
-
-Then edit `.env` to include your Gemini API key:
-
-    GEMINI_API_KEY=your_api_key_here
-
-If you do not set a Gemini key, you can still run retrieval only mode.
+This project matters because it demonstrates how modern AI systems combine search and generation to produce accurate and explainable responses.
 
 ---
 
-## Running DocuBot
+## 3. Architecture Overview
 
-Start the program:
+DocuBot is built using three main components:
 
-    python main.py
+- **Retrieval System:**  
+  Loads documentation files, tokenizes text, builds a simple inverted index, and retrieves relevant text chunks based on query similarity.
 
-Choose a mode:
+- **LLM Layer:**  
+  Uses Google Gemini to generate natural language responses. It is used in both naive mode and RAG mode.
 
-- **1**: Naive LLM (Gemini reads the full docs)  
-- **2**: Retrieval only (no LLM)  
-- **3**: RAG (retrieval + Gemini)
-
-You can use built in sample queries or type your own.
-
----
-
-## Running Retrieval Evaluation (optional)
-
-    python evaluation.py
-
-This prints simple retrieval hit rates for sample queries.
-
----
-
-## Modifying the Project
-
-You will primarily work in:
-
-- `docubot.py`  
-  Implement or improve the retrieval index, scoring, and snippet selection.
-
-- `llm_client.py`  
-  Adjust the prompts and behavior of LLM responses.
-
-- `dataset.py`  
-  Add or change sample queries for testing.
-
----
-
-## Requirements
-
-- Python 3.9+
-- A Gemini API key for LLM features (only needed for modes 1 and 3)
-- No database, no server setup, no external services besides LLM calls
+- **Evaluation System:**  
+  Measures retrieval performance using predefined sample queries and expected document matches.
